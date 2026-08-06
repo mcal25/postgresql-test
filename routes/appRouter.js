@@ -1,10 +1,9 @@
 import { Router } from 'express';
+import { getUsers } from '../controllers/userController.js';
 
 const appRouter = Router();
 
-appRouter.get('/', (req, res) => {
-    console.log('Usernames will be logged here - WIP');
-});
+appRouter.get('/', getUsers);
 
 appRouter.get('/new', (req, res) => {
     // display html form to user with one username input text field
