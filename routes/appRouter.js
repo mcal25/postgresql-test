@@ -30,6 +30,6 @@ appRouter.post('/new', (req, res) => {
     console.log('Username to be saved: ', req.body.username);
 });
 
-appRouter.get("/search", usersSearchGet);
+appRouter.get("/search/:name", usersSearchGet);
 
 export { appRouter };

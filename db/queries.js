@@ -6,8 +6,8 @@ async function getAllUsernames() {
     return rows;
 }
 
-async function searchUsernames() {
-    const { rows } = await pool.query();
+async function searchUsernames(name) {
+    const { rows } = await pool.query('SELECT * FROM usernames WHERE username ILIKE $1', [`%${name}%`]);
     return rows;
 }
 
@@ -15,4 +15,4 @@ async function insertUsername(username) {
     await pool.query('INSERT INTO usernames (username) VALUES ($1)', [username]);
 }
 
-export { getAllUsernames, insertUsername };
+export { getAllUsernames, insertUsername, searchUsernames};

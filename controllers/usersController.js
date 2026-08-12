@@ -18,5 +18,8 @@ export async function createUsernamePost(req, res) {
 }
 
 export async function usersSearchGet(req, res) {
-    
+    const { name } = req.params;
+    const usernames = await db.searchUsernames(name);
+    res.send(`The name you searched: ${usernames.map(user => user.username).join(', ')}`);
 }
+
