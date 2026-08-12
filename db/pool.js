@@ -8,9 +8,9 @@ dotenv.config();
 // We're hardcoding them here for simplicity
 // UPDATE: They should load from the env file now :)
 export const pool = new Pool({
-  host: process.env.HOST,
-  user: process.env.USER,
-  database: process.DATABASE,
-  password: process.PASSWORD,
-  port: process.env.PORT
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT || 5432,
 });
