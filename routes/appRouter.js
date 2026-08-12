@@ -12,6 +12,7 @@ import { getUsers } from '../controllers/usersController.js';
 import { createUsernameGet } from '../controllers/usersController.js';
 import { createUsernamePost } from '../controllers/usersController.js';
 import { usersSearchGet } from '../controllers/usersController.js';
+import { deleteUsernames } from '../controllers/usersController.js';
 import { Query } from 'pg';
 
 const appRouter = Router();
@@ -31,5 +32,7 @@ appRouter.post('/new', (req, res) => {
 });
 
 appRouter.get("/search/:name", usersSearchGet);
+
+appRouter.get('/delete', deleteUsernames);
 
 export { appRouter };

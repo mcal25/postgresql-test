@@ -23,3 +23,8 @@ export async function usersSearchGet(req, res) {
     res.send(`The name you searched: ${usernames.map(user => user.username).join(', ')}`);
 }
 
+export async function deleteUsernames(req, res) {
+    await db.deleteUsernames();
+    res.send('All your burgers were eaten');
+}
+

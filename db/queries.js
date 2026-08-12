@@ -15,4 +15,8 @@ async function insertUsername(username) {
     await pool.query('INSERT INTO usernames (username) VALUES ($1)', [username]);
 }
 
-export { getAllUsernames, insertUsername, searchUsernames};
+async function deleteUsernames() {
+    await pool.query('DELETE FROM usernames');
+}
+
+export { getAllUsernames, insertUsername, searchUsernames, deleteUsernames};
